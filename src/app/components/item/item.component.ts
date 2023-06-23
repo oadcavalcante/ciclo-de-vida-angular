@@ -15,5 +15,10 @@ export class ItemComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('OnInit');
+  }
+  ngOnChanges() {
+    console.log('OnChanges');
+  }
 }
