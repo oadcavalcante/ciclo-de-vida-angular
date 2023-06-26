@@ -20,11 +20,10 @@ export class InputComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {}
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['itemQueVaiSerEditado'].firstChange) {
+    if (!changes['itemQueVaiSerEditado'].firstChange) {
       this.valorItem = this.itemQueVaiSerEditado?.nome;
     }
   }
-
   adicionarItem() {
     this.listaService.adicionarItemNaLista(this.valorItem);
     this.limparCampo();
