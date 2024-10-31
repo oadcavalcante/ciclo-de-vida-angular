@@ -1,27 +1,63 @@
-# LifeCycle
+# Ciclo de Vida dos Componentes no Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+Este projeto demonstra o ciclo de vida dos componentes no Angular, detalhando cada um dos principais eventos de ciclo de vida que são disparados em componentes Angular. Esses eventos permitem controlar o comportamento de um componente desde sua criação até sua destruição, facilitando o gerenciamento de estados, dados e otimizações de desempenho.
 
-## Development server
+## Visão Geral do Ciclo de Vida
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Cada componente Angular passa por uma série de fases durante sua existência. A seguir, estão os principais métodos de ciclo de vida que podem ser implementados em um componente:
 
-## Code scaffolding
+1. **ngOnChanges**  
+   Executado sempre que uma ou mais propriedades de entrada (input properties) de um componente mudam. Este método é útil para responder a alterações nas entradas do componente.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. **ngOnInit**  
+   Chamado uma única vez após o primeiro `ngOnChanges`. Ideal para inicializações que devem ocorrer após a criação do componente, como configurações de propriedades que dependem de outras variáveis de entrada.
 
-## Build
+3. **ngDoCheck**  
+   Invocado a cada ciclo de verificação de mudanças (change detection). Esse método permite que o desenvolvedor implemente sua própria verificação de mudanças customizada, caso necessário.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+4. **ngAfterContentInit**  
+   Disparado uma vez após o Angular inserir o conteúdo externo (ng-content) no componente. Útil para acessar e manipular conteúdo inserido dinamicamente.
 
-## Running unit tests
+5. **ngAfterContentChecked**  
+   Executado após cada verificação do conteúdo inserido no componente, permitindo o gerenciamento contínuo de conteúdo dinâmico.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+6. **ngAfterViewInit**  
+   Chamado após a inicialização das visualizações do componente e de suas visualizações filhas. Ideal para qualquer operação que dependa de elementos DOM do próprio componente.
 
-## Running end-to-end tests
+7. **ngAfterViewChecked**  
+   Executado após cada verificação das visualizações do componente e de suas visualizações filhas. Permite monitorar mudanças contínuas nas visualizações do componente.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+8. **ngOnDestroy**  
+   Chamado imediatamente antes da destruição do componente. Ideal para limpar assinaturas, observables e outros recursos que possam causar vazamentos de memória.
 
-## Further help
+## Estrutura do Projeto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Este projeto contém exemplos de cada evento de ciclo de vida aplicados em um componente. No exemplo, cada método de ciclo de vida é implementado com mensagens no console para facilitar o entendimento da ordem e do contexto de cada um.
+
+## Requisitos e Instalação
+
+1. **Clonar o repositório:**
+   ```bash
+   git clone https://github.com/seu-usuario/ciclo-vida-angular.git
+   cd ciclo-vida-angular
+
+2. **Instalar dependências:**
+   ```bash
+   npm install
+   
+3. **Iniciar o servidor de desenvolvimento:**
+    ```bash
+    ng serve
+    ```
+4. **Acesse o projeto em** _http://localhost:4200_
+
+## Executando o Projeto
+
+  1. Abra o console do navegador para visualizar as mensagens de log que mostram a execução dos métodos de ciclo de vida.
+  2. Interaja com o componente de exemplo para observar a ordem dos eventos de ciclo de vida.
+  3. Use o botão "Remover Componente" para ver o ngOnDestroy em ação.
+
+## Tecnologias Utilizadas
+
+* **Angular** - Framework front-end para desenvolvimento de componentes reutilizáveis e modulares.
+* **TypeScript** - Linguagem que permite definir interfaces e garantir tipos nas implementações dos métodos de ciclo de vida.
