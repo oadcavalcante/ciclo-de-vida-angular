@@ -1,5 +1,7 @@
 # Ciclo de Vida dos Componentes no Angular
 
+![lifecycle](https://github.com/oadcavalcante/ciclo-de-vida-angular/blob/main/src/assets/lifecycle.png)
+
 Este projeto demonstra o ciclo de vida dos componentes no Angular, detalhando cada um dos principais eventos de ciclo de vida que são disparados em componentes Angular. Esses eventos permitem controlar o comportamento de um componente desde sua criação até sua destruição, facilitando o gerenciamento de estados, dados e otimizações de desempenho.
 
 ## Visão Geral do Ciclo de Vida
